@@ -36,7 +36,7 @@ const Register = () => {
 
         <div className="hero  hero-content  bg-white-200">
             <div>
-                <h1 className="text-3xl text-center font-semibold my-5">Register now!</h1>
+                <h1 className="text-3xl text-center font-semibold mb-2">Register now!</h1>
                 <form onSubmit={signHandler} className="card flex-shrink-0 w-96  max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <div className="form-control">
@@ -68,7 +68,7 @@ const Register = () => {
                             }
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-secondary">Register</button>
                         </div>
                     </div>
                 </form>

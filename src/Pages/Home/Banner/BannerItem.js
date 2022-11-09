@@ -13,8 +13,8 @@ const BannerItem = ({ image }) => {
                 <a href={`#slide${prev}`} className="btn btn-circle hover:bg-secondary">❮</a>
                 <a href={`#slide${next}`} className="btn btn-circle hover:bg-secondary">❯</a>
             </div>
-            <div className=" text-center absolute  transform -translate-y-1/2 left-5 right-5 top-2/3">
-                <p className='text-white text-4xl font-bold '>Welcome to <span className='text-secondary'>FoodDies</span> community!</p>
+            <div className=" text-center absolute  transform -translate-y-1/2 left-5 right-5 lg:top-2/3 top-3/4">
+                <p className='text-white text-4xl font-bold '>Welcome to <span className='text-secondary'>FooDies</span> community!</p>
                 <button className="btn w-36 mt-10 btn-outline btn-secondary">Give Reviews</button>
             </div>
             {/* <div className="absolute  transform -translate-y-1/2 left-5 right-5 top-2/3">

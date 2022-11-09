@@ -1,7 +1,19 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 
 const Header = () => {
+    const { logoutHandler, user } = useContext(AuthContext)
+    const logout = () => {
+        logoutHandler()
+            .then(() => {
+
+            })
+            .catch(() => {
+
+            })
+    }
     const ListItems = <>
         <li className='hover:text-secondary'><Link to='/'>Home</Link></li>
         <li className='hover:text-secondary'><Link to='/blog'>Blog</Link></li>
@@ -27,7 +39,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'><button className="btn w-28 btn-outline btn-secondary">Login</button></Link>
+                {
+                    user ?
+                        <>
+                            <button title={user?.displayName} onClick={logout} className="btn btn-outline btn-error">Logout</button>
+                        </> :
+                        <>
+                            <Link to='/login'><button className="btn w-28 btn-outline btn-secondary">Login</button></Link>
+                        </>
+
+                }
             </div>
         </div>
     );

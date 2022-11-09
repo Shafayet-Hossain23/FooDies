@@ -53,7 +53,7 @@ const Login = () => {
     return (
         <div className="hero  hero-content bg-white-200">
             <div>
-                <h1 className="text-3xl text-center font-semibold my-5">Login now!</h1>
+                <h1 className="text-3xl text-center font-semibold mb-2">Login now!</h1>
                 <form onSubmit={loginEventHandler} className="card flex-shrink-0 w-96  max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <div className="form-control">
@@ -85,7 +85,7 @@ const Login = () => {
                             <p>Or Login via</p>
                             <div className='mt-5'>
 
-                                <button onClick={googlePopupHandler} className="btn btn-outline text-red-400"><FaGoogle className=' mr-2' /> Google</button>
+                                <button onClick={googlePopupHandler} className="btn btn-wide btn-outline text-red-400"><FaGoogle className=' mr-2' /> Google</button>
 
                             </div>
                         </div>
