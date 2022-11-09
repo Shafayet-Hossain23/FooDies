@@ -1,10 +1,13 @@
-import logo from './logo.svg';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { routes } from './Routes/Routes';
 
 function App() {
+  const router = routes
+  // console.log(router)
   return (
     <div className="App">
-      <button className="btn btn-outline btn-primary">Button</button>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
