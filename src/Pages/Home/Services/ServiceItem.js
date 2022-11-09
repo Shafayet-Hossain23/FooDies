@@ -1,12 +1,21 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceItem = ({ service }) => {
     const { title, price, image_url, rating, details } = service
     return (
         <div>
             <div className="card w-full bg-base-100 shadow-xl">
-                <figure><img src={image_url} className="w-full h-80" alt="" /></figure>
+                <figure>
+                    {/* <img src={image_url} className="w-full h-80" alt="" /> */}
+                    <PhotoProvider>
+                        <PhotoView src={image_url}>
+                            <img src={image_url} className="w-full h-80" alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p className='text-justify'>
