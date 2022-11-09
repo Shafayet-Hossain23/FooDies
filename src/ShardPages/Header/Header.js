@@ -17,8 +17,12 @@ const Header = () => {
     const ListItems = <>
         <li className='hover:text-secondary'><Link to='/'>Home</Link></li>
         <li className='hover:text-secondary'><Link to='/blog'>Blog</Link></li>
-        <li className='hover:text-secondary'><Link to='/myreviews'>My Reviews</Link></li>
-        <li className='hover:text-secondary'><Link to='/addservices'>Add Services</Link></li>
+        {
+            user?.uid && <>
+                <li className='hover:text-secondary'><Link to='/myreviews'>My Reviews</Link></li>
+                <li className='hover:text-secondary'><Link to='/addservices'>Add Services</Link></li>
+            </>
+        }
     </>
     return (
         <div className="navbar bg-base-100">
