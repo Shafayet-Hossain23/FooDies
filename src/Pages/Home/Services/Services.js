@@ -15,7 +15,7 @@ const Services = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setCount(data.count);
                 setServices(data.services);
             })
@@ -39,7 +39,7 @@ const Services = () => {
                 {
                     services.length === 3 ? <>
                         <button onClick={() => setSize(count)} className="btn btn-outline btn-secondary w-44">See All</button>
-                    </> : <>All services are displayed.</>
+                    </> : <p className='text-slate-300'>All services are displayed.</p>
                 }
             </div>
 

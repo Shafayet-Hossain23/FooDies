@@ -2,9 +2,10 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from 'react-router-dom';
 
 const ServiceItem = ({ service }) => {
-    const { title, price, image_url, rating, details } = service
+    const { _id, title, price, image_url, rating, details } = service
     return (
         <div>
             <div className="card w-full bg-base-100 shadow-xl">
@@ -12,7 +13,7 @@ const ServiceItem = ({ service }) => {
                     {/* <img src={image_url} className="w-full h-80" alt="" /> */}
                     <PhotoProvider>
                         <PhotoView src={image_url}>
-                            <img src={image_url} className="w-full h-80" alt="" />
+                            <img title='Click image for full view' src={image_url} className="w-full h-80" alt="" />
                         </PhotoView>
                     </PhotoProvider>
                 </figure>
@@ -22,15 +23,17 @@ const ServiceItem = ({ service }) => {
                         {details.slice(0, 100)}...
                     </p>
                     <div className='flex justify-between'>
-                        <p>Price:  <span className='font-bold'>${price}</span> </p>
-                        <p className='text-secondary ml-40'>
+                        <div>Price:  <span className='font-bold'>${price}</span> </div>
+                        <div className='text-secondary ml-40'>
                             {
-                                rating?.number ? <><FaStar className='inline pb-1 pr-1 ' /> {rating.number}</> : <>No rating available</>
+                                rating?.number ? <><FaStar className='inline pb-1 pr-1 ' /> {rating.number}</> : <p className='text-slate-300'>No rating available</p>
                             }
-                        </p>
+                        </div>
                     </div>
                     <div className="card-actions mt-2 ">
-                        <button className="btn btn-secondary">View Details</button>
+                        <Link to={`services/${_id}`}>
+                            <button className="btn btn-secondary">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
