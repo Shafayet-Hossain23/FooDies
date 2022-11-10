@@ -9,14 +9,14 @@ const MyRvwChild = ({ serv }) => {
     // const [data,setData]=useState([])
     const [collection, setCollection] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${serviceId}`)
+        fetch(`https://foodies-server.vercel.app/reviews/${serviceId}`)
             .then(res => res.json())
             .then(data => setCollection(data.reviews))
     }, [serviceId])
     const deleteHandler = (serviceId, email) => {
         const confirm = window.confirm("Are you sure to delete this item from order")
         if (confirm) {
-            fetch(`http://localhost:5000/delete/${serviceId}`, {
+            fetch(`https://foodies-server.vercel.app/delete/${serviceId}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json'

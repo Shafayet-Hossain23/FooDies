@@ -17,7 +17,7 @@ const ServiceDetails = () => {
     // console.log(data)
     const [collection, setCollection] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${serviceId}`)
+        fetch(`https://foodies-server.vercel.app/reviews/${serviceId}`)
             .then(res => res.json())
             .then(data => setCollection(data.reviews))
     }, [serviceId])
@@ -35,7 +35,7 @@ const ServiceDetails = () => {
             text: text
 
         }
-        fetch(`http://localhost:5000/reviews/${serviceId}`, {
+        fetch(`https://foodies-server.vercel.app/reviews/${serviceId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'

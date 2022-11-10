@@ -7,7 +7,7 @@ const AddServices = () => {
     useTitle("Add services")
     const [count, setCount] = useState(0)
     useEffect(() => {
-        const url = `http://localhost:5000/services/count`;
+        const url = `https://foodies-server.vercel.app/services/count`;
         // console.log(page, size);
         fetch(url)
             .then(res => res.json())
@@ -35,7 +35,7 @@ const AddServices = () => {
 
         }
         // console.log(JSON.stringify(addService))
-        fetch('http://localhost:5000/services', {
+        fetch('https://foodies-server.vercel.app/services', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -67,7 +67,7 @@ const AddServices = () => {
                         ]
 
                     }
-                    fetch('http://localhost:5000/reviews', {
+                    fetch('https://foodies-server.vercel.app/reviews', {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

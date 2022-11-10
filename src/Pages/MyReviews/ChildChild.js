@@ -11,7 +11,7 @@ const ChildChild = ({ collc, serv, deleteHandler }) => {
         event.preventDefault()
         const text = event.target.text.value
         console.log(text)
-        /* fetch(`http://localhost:5000/edit/${serviceId}`, {
+        /* fetch(`https://foodies-server.vercel.app/edit/${serviceId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'

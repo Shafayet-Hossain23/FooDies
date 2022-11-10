@@ -9,7 +9,7 @@ const MyReviews = () => {
     useTitle("Reviews")
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services/count')
+        fetch('https://foodies-server.vercel.app/services/count')
             .then(res => res.json())
             .then(data => setServices(data.services))
     }, [])

@@ -11,7 +11,7 @@ const Services = () => {
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
-        const url = `http://localhost:5000/services?size=${size}`;
+        const url = `https://foodies-server.vercel.app/services?size=${size}`;
         // console.log(page, size);
         fetch(url)
             .then(res => res.json())
