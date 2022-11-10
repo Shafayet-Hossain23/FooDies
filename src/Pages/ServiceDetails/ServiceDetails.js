@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 import 'react-photo-view/dist/react-photo-view.css';
 import { FaStar } from 'react-icons/fa';
@@ -27,7 +27,7 @@ const ServiceDetails = () => {
 
         const text = form.text.value
         const reviews = {
-            name: user.email,
+            name: user.displayName,
             image: user.photoURL,
             email: user.email,
             text: text
@@ -43,6 +43,11 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.modifiedCount > 0) {
+                    const newCollecetion = [...collection, reviews]
+                    setCollection(newCollecetion)
+                    alert("Comment add successfully")
+                }
             })
     }
     return (
@@ -84,11 +89,17 @@ const ServiceDetails = () => {
                         <p className='text-3xl text-secondary font-bold'>Give Review</p>
                     </div>
                     <div>
-                        <form onSubmit={reviewHandler} className='lg:w-2/3 w-full'>
-                            <p className='ml-2 mb-1'>Give Your Review Here: </p>
-                            <textarea name='text' className="textarea textarea-bordered w-full required" placeholder="Comments"></textarea>
-                            <button className="btn mt-3 w-28 btn-secondary">Submit</button>
-                        </form>
+                        {
+                            user?.uid ? <>
+                                <div>
+                                    <form onSubmit={reviewHandler} className='lg:w-2/3 w-full'>
+                                        <p className='ml-2 mb-1'>Give Your Review Here: </p>
+                                        <textarea name='text' className="textarea textarea-bordered w-full required" placeholder="Comments"></textarea>
+                                        <button className="btn mt-3 w-28 btn-secondary">Submit</button>
+                                    </form>
+                                </div></> :
+                                <><p className='text-center font-bold'>For adding review,you have to <Link className='text-secondary' to='/login'>login</Link> first</p></>
+                        }
                     </div>
 
                 </div>
