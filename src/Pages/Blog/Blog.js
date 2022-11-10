@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../UseTitle/useTitle';
 
 const Blog = () => {
+    useTitle("Blogs")
     return (
         <div className='my-10 text-justify mx-7'>
             <div>

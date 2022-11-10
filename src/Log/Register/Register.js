@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import useTitle from '../../UseTitle/useTitle';
 
 const Register = () => {
+    useTitle("Register")
     const { registerHandler, updateProfileHandler } = useContext(AuthContext);
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('')

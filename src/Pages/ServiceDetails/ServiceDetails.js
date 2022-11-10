@@ -7,8 +7,10 @@ import { FaStar } from 'react-icons/fa';
 import { useEffect } from 'react';
 import Review from './Review/Review';
 import { AuthContext } from '../../Context/UserContext';
+import useTitle from '../../UseTitle/useTitle';
 
 const ServiceDetails = () => {
+    useTitle("Details")
     const { user } = useContext(AuthContext)
     const data = useLoaderData()
     const { _id, serviceId, title, price, image_url, rating, details } = data

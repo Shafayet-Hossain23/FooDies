@@ -1,9 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import useTitle from '../../UseTitle/useTitle';
+import Banner from '../Home/Banner/Banner';
 import MyRvwChild from './MyRvwChild';
 
 const MyReviews = () => {
+    useTitle("Reviews")
     const [services, setServices] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/services/count')
@@ -13,8 +16,11 @@ const MyReviews = () => {
     // console.log(services)
     // const { _id, serviceId, title, price, image_url, rating, details } = services
     return (
-        <div className='my-4'>
-            <div >
+        <div className='mb-20' >
+            <div>
+                <Banner></Banner>
+            </div>
+            <div className='mt-20' >
                 <p className='text-3xl text-center font-bold'>Your All Review</p>
                 <p className='my-2'>If you new,Please review us!</p>
             </div>

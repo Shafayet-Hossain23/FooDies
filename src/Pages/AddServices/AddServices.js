@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import useTitle from '../../UseTitle/useTitle';
 import Banner from '../Home/Banner/Banner';
 
 const AddServices = () => {
+    useTitle("Add services")
     const [count, setCount] = useState(0)
     useEffect(() => {
         const url = `http://localhost:5000/services/count`;
