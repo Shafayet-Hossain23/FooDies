@@ -17,7 +17,7 @@ const MyReviews = () => {
     // const { _id, serviceId, title, price, image_url, rating, details } = services
     return (
         <div className='mb-20' >
-            <div>
+            <div className='mt-3'>
                 <Banner></Banner>
             </div>
             <div className='mt-20' >
