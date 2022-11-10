@@ -25,7 +25,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/addservices',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
             {
                 path: '/blog',

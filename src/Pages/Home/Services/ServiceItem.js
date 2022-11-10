@@ -26,7 +26,7 @@ const ServiceItem = ({ service }) => {
                         <div>Price:  <span className='font-bold'>${price}</span> </div>
                         <div className='text-secondary ml-40'>
                             {
-                                rating?.number ? <><FaStar className='inline pb-1 pr-1 ' /> {rating.number}</> : <p className='text-slate-300'>No rating available</p>
+                                rating?.number ? <><FaStar className='inline pb-1 pr-1 ' /> {rating.number}</> : <></>
                             }
                         </div>
                     </div>

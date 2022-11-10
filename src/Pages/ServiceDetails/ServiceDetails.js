@@ -47,6 +47,7 @@ const ServiceDetails = () => {
                     const newCollecetion = [...collection, reviews]
                     setCollection(newCollecetion)
                     alert("Comment add successfully")
+                    form.reset()
                 }
             })
     }
@@ -95,7 +96,7 @@ const ServiceDetails = () => {
                                     <form onSubmit={reviewHandler} className='lg:w-2/3 w-full'>
                                         <p className='ml-2 mb-1'>Give Your Review Here: </p>
                                         <textarea name='text' className="textarea textarea-bordered w-full required" placeholder="Comments"></textarea>
-                                        <button className="btn mt-3 w-28 btn-secondary">Submit</button>
+                                        <button type='submit' className="btn mt-3 w-28 btn-secondary">Submit</button>
                                     </form>
                                 </div></> :
                                 <><p className='text-center font-bold'>For adding review,you have to <Link className='text-secondary' to='/login'>login</Link> first</p></>
