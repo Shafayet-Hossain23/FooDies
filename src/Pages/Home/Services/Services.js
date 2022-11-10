@@ -8,6 +8,7 @@ const Services = () => {
     const [count, setCount] = useState(0)
     // const [page, setPage] = useState(0);
     const [size, setSize] = useState(3);
+    const [loader, setLoader] = useState(true)
 
     useEffect(() => {
         const url = `http://localhost:5000/services?size=${size}`;
@@ -18,6 +19,7 @@ const Services = () => {
                 // console.log(data)
                 setCount(data.count);
                 setServices(data.services);
+                setLoader(false)
             })
     }, [size])
 
@@ -26,6 +28,9 @@ const Services = () => {
         <div>
             <div>
                 <p className="text-4xl font-bold text-center mb-8">Our Services</p>
+            </div>
+            <div className='text-center my-4'>
+                {loader && <div className="radial-progress text-secondary" style={{ "--value": 70 }}></div>}
             </div>
             <div className='grid lg:grid-cols-2 grid-cols-1 w-full gap-10'>
                 {

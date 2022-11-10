@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const location = useLocation()
     if (loading) {
-        return <div className='text-secondary text-center my-5'>Loading...</div>
+        return <div className='text-center'><p className="radial-progress text-secondary my-7" style={{ "--value": 70 }}></p></div>
 
     }
     if (!user) {
