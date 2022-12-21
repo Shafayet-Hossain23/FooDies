@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import LoadingSpinner from '../../../components/LoadingSpinner';
 import ServiceItem from './ServiceItem';
 
 const Services = () => {
@@ -22,16 +23,18 @@ const Services = () => {
                 setLoader(false)
             })
     }, [size])
-
+    if (loader) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
     // const pages = Math.ceil(count / size);
     return (
         <div>
             <div>
                 <p className="text-4xl font-bold text-center mb-8">Our Services</p>
             </div>
-            <div className='text-center my-4'>
+            {/* <div className='text-center my-4'>
                 {loader && <div className="radial-progress text-secondary" style={{ "--value": 70 }}></div>}
-            </div>
+            </div> */}
             <div className='grid lg:grid-cols-2 grid-cols-1 w-full gap-10'>
                 {
                     services.map(service => <ServiceItem

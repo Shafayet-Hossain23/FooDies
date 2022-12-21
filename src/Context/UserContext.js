@@ -49,7 +49,7 @@ const UserContext = ({ children }) => {
         }
     }, [])
 
-    const userInfo = { user, loading, registerHandler, loginHandler, googlePopUpSignin, updateProfileHandler, githubPopup, logoutHandler }
+    const userInfo = { user, loading, registerHandler, loginHandler, googlePopUpSignin, updateProfileHandler, githubPopup, logoutHandler, setLoading }
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

@@ -3,12 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub, FaFacebook } from 'react-icons/fa';
 import { AuthContext } from '../../Context/UserContext';
 import useTitle from '../../UseTitle/useTitle';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Login = () => {
     useTitle("Login")
     const { loginHandler, googlePopUpSignin } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState(false)
+    const [loader, setLoader] = useState(false)
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
@@ -20,37 +22,45 @@ const Login = () => {
         console.log(email, password)
         setError('')
         setSuccess(false)
+        setLoader(true)
         loginHandler(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user)
+                // console.log(user)
                 setSuccess(true)
+                setLoader(false)
                 form.reset()
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorMessage = error.message
-                console.error(error);
+                // console.error(error);
                 setError(errorMessage)
+                setLoader(false)
             })
     }
     const googlePopupHandler = () => {
         setError('')
         setSuccess(false)
+        // setLoader(true)
         googlePopUpSignin()
             .then(result => {
                 const user = result.user
                 console.log(user)
                 setSuccess(true)
+                // setLoader(false)
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorMessage = error.message
-                console.error(error);
+                // console.error(error);
                 setError(errorMessage)
+                // setLoader(false)
             })
     }
-
+    if (loader) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div className="hero  hero-content bg-white-200">

@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import { AuthContext } from '../../Context/UserContext';
 import useTitle from '../../UseTitle/useTitle';
 
 const Register = () => {
     useTitle("Register")
-    const { registerHandler, updateProfileHandler } = useContext(AuthContext);
+    const { registerHandler, updateProfileHandler, setLoading } = useContext(AuthContext);
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('')
+    const [loader, setLoader] = useState(false)
     const navigate = useNavigate()
 
     const signHandler = (event) => {
@@ -19,20 +21,28 @@ const Register = () => {
         // console.log(email, password, name)
         setSuccess(false)
         setError('')
+        setLoader(true)
         registerHandler(email, password)
             .then(result => {
                 const user = result.user
                 updateProfileHandler(name)
-                console.log(user)
+                // console.log(user)
                 setSuccess(true)
                 navigate('/')
+                setLoader(false)
+                // ..userContext..
+                setLoading(false)
                 form.reset()
             })
             .catch(error => {
                 const errorMessage = error.message
                 setError(errorMessage)
-                console.error(error)
+                setLoader(false)
+                // console.error(error)
             })
+    }
+    if (loader) {
+        return <LoadingSpinner></LoadingSpinner>
     }
     return (
 

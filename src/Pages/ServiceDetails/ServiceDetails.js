@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import Review from './Review/Review';
 import { AuthContext } from '../../Context/UserContext';
 import useTitle from '../../UseTitle/useTitle';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const ServiceDetails = () => {
     useTitle("Details")
@@ -16,10 +17,14 @@ const ServiceDetails = () => {
     const { _id, serviceId, title, price, image_url, rating, details } = data
     // console.log(data)
     const [collection, setCollection] = useState([])
+    const [loader, setLoader] = useState(true)
     useEffect(() => {
         fetch(`https://foodies-server.vercel.app/reviews/${serviceId}`)
             .then(res => res.json())
-            .then(data => setCollection(data.reviews))
+            .then(data => {
+                setCollection(data.reviews)
+                setLoader(false)
+            })
     }, [serviceId])
     // const serviceReviews = collection.reviews
     console.log(collection)
@@ -52,6 +57,9 @@ const ServiceDetails = () => {
                     form.reset()
                 }
             })
+    }
+    if (loader) {
+        return <LoadingSpinner></LoadingSpinner>
     }
     return (
         <div className="my-10 card w-full bg-base-100 shadow">

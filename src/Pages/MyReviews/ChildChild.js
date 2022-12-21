@@ -10,7 +10,7 @@ const ChildChild = ({ collc, serv, deleteHandler }) => {
     const editHandler = (event, serviceId) => {
         event.preventDefault()
         const text = event.target.text.value
-        console.log(text)
+        // console.log(text)
         /* fetch(`https://foodies-server.vercel.app/edit/${serviceId}`, {
             method: "PATCH",
             headers: {
@@ -27,7 +27,7 @@ const ChildChild = ({ collc, serv, deleteHandler }) => {
             }) */
     }
     return (
-        <div>
+        <div >
             <div>
                 {
                     user.email === email
